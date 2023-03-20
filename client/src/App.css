@@ -36,3 +36,70 @@
     transform: rotate(360deg);
   }
 }
+
+.CreateBook {
+  background-color: black;
+  min-height: 100vh;
+  color: beige;
+}
+
+.ShowBookDetails {
+  background-color: black;
+  min-height: 100vh;
+  color: beige;
+}
+
+.UpdateBookInfo {
+  background-color: black;
+  min-height: 100vh;
+  color: beige;
+}
+
+.ShowBookList {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 100px;
+  color: beige;
+}
+
+
+.list {
+  display: grid;
+  margin: 20px 0 50px 0;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 2em;
+}
+
+
+.card-container {
+  width: 250px;
+  border: 1px solid rgb(165, 165, 165);
+  margin: 0 auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+.desc {
+  height: 130px;
+  padding: 10px;
+}
+
+.desc h2 {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+
+.desc h3, p {
+  font-weight: 300;
+}
+
+.desc h3  {
+  color: #6c757d;
+  font-size: 1em;
+  padding: 10px 0 10px 0;
+}
