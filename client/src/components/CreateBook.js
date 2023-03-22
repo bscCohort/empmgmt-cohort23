@@ -1,90 +1,77 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const CreateBook = (props) => {
-  const navigate = useNavigate()
-  const [book, setbook] = useState( {
+  // Define the state with useState hook
+  const navigate = useNavigate();
+  const [book, setBook] = useState({
     title: '',
     isbn: '',
     author: '',
     description: '',
     published_date: '',
     publisher: '',
-  } )
+  });
 
   const onChange = (e) => {
-    setbook({ 
-      ...book, [e.target.name]: e.target.value 
-    })
-  }
-
+    setBook({ ...book, [e.target.name]: e.target.value });
+  };
 
   const onSubmit = (e) => {
-    e.preventDefault()
-
-
+    e.preventDefault();
 
     axios
-    .post("https://3000-bsccohort-empmgmtcohort-tgprlaafyqj.ws-us90.gitpod.io/api/books", book)
-    .then( (res) => {
-      setbook( {
-        title: '',
-        isbn: '',
-        author: '',
-        description: '',
-        published_date: '',
-        publisher: '',
-      } )
+      .post('https://5000-bsccohort-empmgmtcohort-tgprlaafyqj.ws-us90.gitpod.io/api/books', book)
+      .then((res) => {
+        setBook({
+          title: '',
+          isbn: '',
+          author: '',
+          description: '',
+          published_date: '',
+          publisher: '',
+        });
 
-      navigate('/')
-
-    } )
-    .catch( (err) => {
-      console.log('Failed to create a new book')
-      console.log(err)
-    } )
-  }
-
+        // Push to /
+        navigate('/');
+      })
+      .catch((err) => {
+        console.log('Error in CreateBook!');
+        console.log('The error is -> ')
+        console.log(err)
+      });
+  };
 
   return (
     <div className='CreateBook'>
       <div className='container'>
         <div className='row'>
-
-          {/* SHOW ALL BOOKS */}
           <div className='col-md-8 m-auto'>
             <br />
-
             <Link to='/' className='btn btn-outline-warning float-left'>
-              Show All Books 
+              Show BooK List
             </Link>
-
           </div>
-
-          {/* CREATE BOOK FORM */}
           <div className='col-md-8 m-auto'>
             <h1 className='display-4 text-center'>Add Book</h1>
-            <p className='lead text-center'>Create A New Book</p>
+            <p className='lead text-center'>Create new book</p>
 
             <form noValidate onSubmit={onSubmit}>
-              
-              {/* TITLE */}
               <div className='form-group'>
                 <input
                   type='text'
-                  placeholder='Title of the book'
+                  placeholder='Title of the Book'
                   name='title'
                   className='form-control'
                   value={book.title}
-                  onChange={onChange} 
-                
+                  onChange={onChange}
                 />
               </div>
+              <br />
 
-              {/* ISBN */}
               <div className='form-group'>
                 <input
                   type='text'
@@ -92,12 +79,10 @@ const CreateBook = (props) => {
                   name='isbn'
                   className='form-control'
                   value={book.isbn}
-                  onChange={onChange} 
-                
+                  onChange={onChange}
                 />
               </div>
 
-              {/* AUTHOR */}
               <div className='form-group'>
                 <input
                   type='text'
@@ -105,12 +90,10 @@ const CreateBook = (props) => {
                   name='author'
                   className='form-control'
                   value={book.author}
-                  onChange={onChange} 
-                
+                  onChange={onChange}
                 />
               </div>
 
-              {/* DESCRIPTION */}
               <div className='form-group'>
                 <input
                   type='text'
@@ -118,12 +101,10 @@ const CreateBook = (props) => {
                   name='description'
                   className='form-control'
                   value={book.description}
-                  onChange={onChange} 
-                
+                  onChange={onChange}
                 />
               </div>
 
-              {/* PUBLISHED_DATE */}
               <div className='form-group'>
                 <input
                   type='date'
@@ -131,64 +112,30 @@ const CreateBook = (props) => {
                   name='published_date'
                   className='form-control'
                   value={book.published_date}
-                  onChange={onChange} 
-                
+                  onChange={onChange}
                 />
               </div>
-
-              {/* PUBLISHER */}
               <div className='form-group'>
                 <input
                   type='text'
-                  placeholder='Publisher of the book'
+                  placeholder='Publisher of this Book'
                   name='publisher'
                   className='form-control'
                   value={book.publisher}
-                  onChange={onChange} 
-                
+                  onChange={onChange}
                 />
               </div>
 
-
-              {/* SUBMIT BUTTON */}
               <input
                 type='submit'
                 className='btn btn-outline-warning btn-block mt-4'
               />
-
             </form>
           </div>
-
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-
-
-// function CreateBook() {
-//   return (
-//     <div><h1>This is the CreateBook component</h1></div>
-//   )
-// }
-
-export default CreateBook
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default CreateBook;

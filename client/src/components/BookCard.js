@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './App.css'
+import '../App.css'
 
-const BookCard = () => {
-  const boo = props.book
+const BookCard = (props) => {
+  const book = props.book
 
 
 
@@ -16,12 +16,12 @@ const BookCard = () => {
       />
       <div className='desc'>
         <h2>
-          <Link to={ '/show-book/${book._id}' }>
+          <Link to={ `/show-book/${book._id}` }>
             {book.title}  
           </Link> 
         </h2>
         <h3>{book.author}</h3>
-        <p>{book.description</p>
+        <p>{book.description}</p>
       </div>
     </div>  
   )

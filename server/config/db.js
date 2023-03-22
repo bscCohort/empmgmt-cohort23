@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const db = "mongodb+srv://bscCohort:Crimsy!2345@cluster0.ws1rq5o.mongodb.net/?retryWrites=true&w=majority"
+const db = "mongodb+srv://bscCohort:Crimsy!2345@cluster0.ws1rq5o.mongodb.net/books?retryWrites=true&w=majority"
 
 
 
